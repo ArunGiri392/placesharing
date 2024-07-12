@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import "./Button.css";
 
+// different conditions for the buttons.
+//Custom button used. 
 const Button = (props) => {
   if (props.href) {
     return (
