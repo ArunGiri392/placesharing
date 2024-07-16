@@ -46,4 +46,4 @@ def delete_place(request, pid):
     except Place.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     place.delete()
-    return Response(status=status.HTTP_204_NO_CONTENT)
+    return Response({"message": "Place deleted sucessfully"}, status=status.HTTP_204_NO_CONTENT)
