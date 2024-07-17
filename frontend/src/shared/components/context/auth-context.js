@@ -4,6 +4,7 @@ import { createContext } from "react";
 // login/logout app state management.
 
 export const AuthContext = createContext({
+  userId : null,
   isLoggedIn: false,
   login: () => {},
   logout: () => {},
