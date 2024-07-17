@@ -22,9 +22,12 @@ def get_places_by_user_id(request, uid):
 @api_view(['POST'])
 def create_place(request):
     serializer = PlaceSerializer(data=request.data)
+    print(request.data)
+    print("API CALLED")
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    print(serializer.errors)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['PATCH'])
