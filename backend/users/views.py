@@ -20,24 +20,8 @@ def signup(request):
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    return Response({"message": "User already exists", "errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
-
-
-
-
-# @api_view(['POST'])
-# def login(request):
-#     serializer = LoginSerializer(data=request.data)
-#     if serializer.is_valid():
-#         email = serializer.validated_data['email']
-#         password = serializer.validated_data['password']
-#         user = authenticate(request, email=email, password=password)
-#         if user is not None:
-#             auth_login(request, user)
-#             return Response({"message": "Login successful"}, status=status.HTTP_200_OK)
-#         return Response({"message": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
-#     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 def login(request):

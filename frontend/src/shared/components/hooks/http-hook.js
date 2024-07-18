@@ -4,12 +4,13 @@ export const useHttpClient = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
 
-//   const activeHttpRequests = useRef([]);
+
 
   const sendRequest = useCallback(
     async (url, method = 'GET', body = null, headers = {}) => {
       setIsLoading(true);
-  
+
+      let responseData;
 
       try {
         const response = await fetch(url, {
@@ -20,20 +21,21 @@ export const useHttpClient = () => {
         });
 
         const responseData = await response.json();
-        console.log(responseData);
+        // console.log(responseData);
+        // console.log("place delted");
 
         if (!response.ok) {
-          console.log("arun");
-          // return responseData;
+          // console.log("arun from ok");
           throw new Error(responseData.message);
         }
 
-        setIsLoading(false);
+        // setIsLoading(false);
         return responseData;
       } catch (err) {
+        console.log(err.message);
         setError(err.message);
-        setIsLoading(false);
-        throw err;
+        return responseData;
+
       }
     },
     []

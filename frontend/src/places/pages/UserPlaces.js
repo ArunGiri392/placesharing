@@ -23,9 +23,14 @@ const UserPlaces = () => {
     fetchPlaces();
   }, [sendRequest, userId]);
 
+  const placeDeletedHanlder = (deletedPlaceId) => {
+    console.log('place delete handler executed!!')
+    setLoadedPlaces(prevPlaces  => prevPlaces.filter(place => place.id !== deletedPlaceId))
+  }
+
   return (
     <React.Fragment>
-      {loadedPlaces && <PlaceList items={loadedPlaces} />}
+      {loadedPlaces && <PlaceList items={loadedPlaces} onDeletePlace = {placeDeletedHanlder} />}
     </React.Fragment>
   );
 };
