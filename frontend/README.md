@@ -43,7 +43,7 @@ To set up the project locally, follow these steps:
 2. **Navigate to the frontend directory:**
 
     ```bash
-    cd PlaceShare/frontend
+    cd PlaceSharing/frontend
     ```
 
 3. **Install dependencies:**
@@ -55,7 +55,7 @@ To set up the project locally, follow these steps:
 4. **Start the development server:**
 
     ```bash
-    npm start
+    npm run start
     ```
 
     The application will be available at `http://localhost:3000`.
