@@ -1,4 +1,3 @@
-# users/backend.py
 
 from django.contrib.auth.backends import BaseBackend
 from django.contrib.auth.hashers import check_password

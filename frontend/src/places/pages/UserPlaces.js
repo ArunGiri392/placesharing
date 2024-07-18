@@ -24,7 +24,6 @@ const UserPlaces = () => {
   }, [sendRequest, userId]);
 
   const placeDeletedHanlder = (deletedPlaceId) => {
-    console.log('place delete handler executed!!')
     setLoadedPlaces(prevPlaces  => prevPlaces.filter(place => place.id !== deletedPlaceId))
   }
 

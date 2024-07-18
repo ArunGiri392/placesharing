@@ -34,7 +34,6 @@ const Auth = () => {
   );
 
   const authSubmitHandler = async (event) => {
-    console.log(formState.inputs);
     event.preventDefault();
     if (isLoginMode) {
       try {
@@ -51,9 +50,6 @@ const Auth = () => {
         );
         auth.login(responseData.user.id);
         
-        console.log(responseData);
-        console.log(responseData.user.id)
-        console.log(auth.userId);
       } catch (err) {}
     } else {
       try {
@@ -70,7 +66,6 @@ const Auth = () => {
             'Content-Type': 'application/json'
           }
         );
-        console.log(responseData);
 
         auth.login(responseData.id);
       } catch (err) {}
@@ -123,6 +118,7 @@ const Auth = () => {
             label="Your Name"
             validators={[VALIDATOR_REQUIRE()]}
             errorText="please enter a name"
+            placeholder="Use letters, digits, @/./+/-/_ only"
             onInput={inputHandler}
           />
 

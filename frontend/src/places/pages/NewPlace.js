@@ -54,7 +54,7 @@ const NewPlace = () => {
       );
       console.log(responseData);
       navigate("/");
-      //redirecting user to the different page.
+      //redirecting user to the different pag.e
     } catch (err) {}
   };
 

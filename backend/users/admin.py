@@ -21,22 +21,3 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.register(CustomUser, CustomUserAdmin)
 
-# from django.contrib import admin
-# from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-# from .models import CustomUser
-
-# class CustomUserAdmin(BaseUserAdmin):
-#     fieldsets = (
-#         (None, {'fields': ('username', 'password')}),
-#         ('Personal info', {'fields': ('first_name', 'last_name', 'email', 'image_url')}),
-#         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
-#         ('Important dates', {'fields': ('last_login', 'date_joined')}),
-#         ('Places', {'fields': ('get_places',)}),  # Add custom field for places
-#     )
-#     readonly_fields = ('get_places',)  # Make the places field read-only
-
-#     def get_places(self, obj):
-#         return ", ".join([place.title for place in obj.places.all()])
-#     get_places.short_description = 'Places'
-
-# admin.site.register(CustomUser, CustomUserAdmin)

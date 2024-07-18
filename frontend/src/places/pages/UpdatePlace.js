@@ -1,18 +1,18 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from "react";
 
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from "react-router-dom";
 
-import Input from '../../shared/components/FormElements/Input';
-import Button from '../../shared/components/FormElements/Button';
-import Card from '../../shared/components/UIElements/Card';
+import Input from "../../shared/components/FormElements/Input";
+import Button from "../../shared/components/FormElements/Button";
+import Card from "../../shared/components/UIElements/Card";
 import {
   VALIDATOR_REQUIRE,
-  VALIDATOR_MINLENGTH
-} from '../../shared/components/util/validators';
-import { useForm } from '../../shared/components/hooks/form-hook';
-import { useHttpClient } from '../../shared/components/hooks/http-hook';
-import { AuthContext } from '../../shared/components/context/auth-context';
-import './PlaceForm.css';
+  VALIDATOR_MINLENGTH,
+} from "../../shared/components/util/validators";
+import { useForm } from "../../shared/components/hooks/form-hook";
+import { useHttpClient } from "../../shared/components/hooks/http-hook";
+import { AuthContext } from "../../shared/components/context/auth-context";
+import "./PlaceForm.css";
 
 const UpdatePlace = () => {
   const auth = useContext(AuthContext);
@@ -24,13 +24,13 @@ const UpdatePlace = () => {
   const [formState, inputHandler, setFormData] = useForm(
     {
       title: {
-        value: '',
-        isValid: false
+        value: "",
+        isValid: false,
       },
       description: {
-        value: '',
-        isValid: false
-      }
+        value: "",
+        isValid: false,
+      },
     },
     false
   );
@@ -47,40 +47,37 @@ const UpdatePlace = () => {
           {
             title: {
               value: responseData.title,
-              isValid: true
+              isValid: true,
             },
             description: {
               value: responseData.description,
-              isValid: true
-            }
+              isValid: true,
+            },
           },
           true
         );
-
       } catch (err) {}
     };
     fetchPlace();
   }, [sendRequest, placeId, setFormData]);
 
-  const placeUpdateSubmitHandler = async event => {
+  const placeUpdateSubmitHandler = async (event) => {
     event.preventDefault();
     try {
       await sendRequest(
         `http://localhost:8000/api/places/update/${placeId}/`,
-        'PATCH',
+        "PATCH",
         JSON.stringify({
           title: formState.inputs.title.value,
-          description: formState.inputs.description.value
+          description: formState.inputs.description.value,
         }),
         {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         }
       );
-      navigate('/');
+      navigate("/");
     } catch (err) {}
   };
-
-
 
   return (
     <React.Fragment>

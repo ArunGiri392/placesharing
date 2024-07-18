@@ -22,7 +22,6 @@ def get_places_by_user_id(request, uid):
 @api_view(['POST'])
 def create_place(request):
     serializer = PlaceSerializer(data=request.data)
-    print(request.data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -30,12 +29,10 @@ def create_place(request):
 
 @api_view(['PATCH'])
 def update_place(request, pid):
-    print('update place is called')
     try:
         place = Place.objects.get(id=pid)
     except Place.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
-    print(place)
     serializer = PlaceSerializer(place, data=request.data, partial=True)
     if serializer.is_valid():
         serializer.save()
@@ -44,16 +41,10 @@ def update_place(request, pid):
 
 @api_view(['DELETE'])
 def delete_place(request, pid):
-    print("api called from delete method called")
-    print("place id is " + str(pid))
     try:
         place = Place.objects.get(id=pid)
     except Place.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-    print(place)
-    # if place.creator != request.user:
-    #     return Response(status=status.HTTP_403_FORBIDDEN)
-        
     place.delete()
     return Response({"message": "Place deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
