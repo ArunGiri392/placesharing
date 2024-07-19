@@ -1,42 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import PlaceList from "../components/PlaceList";
+import { useHttpClient } from "../../shared/components/hooks/http-hook";
 
-const DUMMY_PLACES = [
-  {
-    id: "p1",
-    title: "Empire state building",
-    description: "one of the most famous sky scrapers in the world",
-    imageUrl:
-      "https://lh5.googleusercontent.com/p/AF1QipPIzh6fpHvFALWSVqS4RNF4h__GviXD6b80n01d=w408-h272-k-no",
-    address: "Empire State Building, 20 W 34th St., New York, NY 10001",
-    location: {
-      lat: 40.7484445,
-      lng: -73.9882393,
-    },
-    creator: "u1",
-  },
-  {
-    id: "p2",
-    title: "Empire state building",
-    description: "one of the most famous sky scrapers in the world",
-    imageUrl:
-      "https://lh5.googleusercontent.com/p/AF1QipPIzh6fpHvFALWSVqS4RNF4h__GviXD6b80n01d=w408-h272-k-no",
-    address: "Empire State Building, 20 W 34th St., New York, NY 10001",
-    location: {
-      lat: 40.7484445,
-      lng: -73.9882393,
-    },
-    creator: "u2",
-  },
-];
 const UserPlaces = () => {
   const { userId } = useParams();
-  const loadedPlaces = DUMMY_PLACES.filter((place) => {
-    return place.creator === userId;
-  });
+  console.log(userId);
+  const [loadedPlaces, setLoadedPlaces] = useState();
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
-  return <PlaceList items={loadedPlaces}></PlaceList>;
+  useEffect(() => {
+    const fetchPlaces = async () => {
+      try {
+        const responseData = await sendRequest(
+          `http://localhost:8000/api/places/user/${userId}`
+        );
+        console.log(responseData);
+        setLoadedPlaces(responseData);
+      } catch (err) {}
+    };
+    fetchPlaces();
+  }, [sendRequest, userId]);
+
+  const placeDeletedHanlder = (deletedPlaceId) => {
+    setLoadedPlaces(prevPlaces  => prevPlaces.filter(place => place.id !== deletedPlaceId))
+  }
+
+  return (
+    <React.Fragment>
+      {loadedPlaces && <PlaceList items={loadedPlaces} onDeletePlace = {placeDeletedHanlder} />}
+    </React.Fragment>
+  );
 };
 export default UserPlaces;
