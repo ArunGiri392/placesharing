@@ -38,7 +38,7 @@ const Auth = () => {
     if (isLoginMode) {
       try {
         const responseData = await sendRequest(
-          'http://localhost:8000/api/users/login/',
+          'http://54.234.229.159:8000/api/users/login/',
           'POST',
           JSON.stringify({
             email: formState.inputs.email.value,
@@ -54,7 +54,7 @@ const Auth = () => {
     } else {
       try {
         const responseData = await sendRequest(
-          'http://localhost:8000/api/users/signup/',
+          'http://54.234.229.159:8000/api/users/signup/',
           'POST',
           JSON.stringify({
             username: formState.inputs.name.value,
