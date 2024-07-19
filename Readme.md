@@ -10,8 +10,7 @@ Update place details
 Responsive design
 
 ## Demo
-Link to live demo
-https://www.youtube.com/watch?v=t1S-6f-sXlE&ab_channel=Arungiri
+[Watch the demo on YouTube](https://www.youtube.com/watch?v=t1S-6f-sXlE&ab_channel=Arungiri)
 
 
 ## For installations of Frontend and backend:
