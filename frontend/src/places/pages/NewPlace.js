@@ -15,7 +15,7 @@ import "./PlaceForm.css";
 const NewPlace = () => {
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
-  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const { sendRequest } = useHttpClient();
   const [formState, inputHandler] = useForm(
     {
       title: {

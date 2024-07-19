@@ -3,7 +3,7 @@ import UsersList from "../components/UsersList";
 import { useHttpClient } from "../../shared/components/hooks/http-hook";
 
 const User = () => {
-  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const {  sendRequest } = useHttpClient();
   const [loadedUsers, setLoadedUsers] = useState();
 
   useEffect(() => {

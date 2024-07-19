@@ -6,9 +6,8 @@ import { useHttpClient } from "../../shared/components/hooks/http-hook";
 
 const UserPlaces = () => {
   const { userId } = useParams();
-  console.log(userId);
   const [loadedPlaces, setLoadedPlaces] = useState();
-  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const { sendRequest } = useHttpClient();
 
   useEffect(() => {
     const fetchPlaces = async () => {
