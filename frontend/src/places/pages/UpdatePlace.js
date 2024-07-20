@@ -41,7 +41,6 @@ const UpdatePlace = () => {
         const responseData = await sendRequest(
           `http://3.83.241.237:8000/api/places/${placeId}`
         );
-        console.log(responseData);
         setLoadedPlace(responseData);
         setFormData(
           {
@@ -65,7 +64,7 @@ const UpdatePlace = () => {
     event.preventDefault();
     try {
       await sendRequest(
-        `http://54.234.229.159:8000/api/places/update/${placeId}/`,
+        `http://3.83.241.237:8000/api/places/update/${placeId}/`,
         "PATCH",
         JSON.stringify({
           title: formState.inputs.title.value,
