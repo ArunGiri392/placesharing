@@ -130,6 +130,8 @@ const Auth = () => {
               validators={[VALIDATOR_MINLENGTH(5)]}
               errorText="Please enter a valid image URL"
               onInput={inputHandler}
+              initialValue="https://smarterpaymentsummit.co.uk/wp-content/uploads/2019/04/profile-pic-dummy.png"
+              initialValid={true}
             />
             </>
         )}

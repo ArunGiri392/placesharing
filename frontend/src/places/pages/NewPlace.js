@@ -94,6 +94,8 @@ const NewPlace = () => {
         validators={[VALIDATOR_MINLENGTH(5)]}
         errorText="Please enter a valid image URL"
         onInput={inputHandler}
+        initialValue="https://files.worldwildlife.org/wwfcmsprod/images/Tiger_resting_Bandhavgarh_National_Park_India/hero_small/6aofsvaglm_Medium_WW226365.jpg"
+        initialValid={true}
       />
       <Button type="submit" disabled={!formState.isValid}>
         ADD PLACE

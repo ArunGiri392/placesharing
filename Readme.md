@@ -14,8 +14,9 @@ Responsive design
 
 
 ## For installations of Frontend and backend:
-For frontend Readme, please naviagate to /frontend/readme.md
-For backend Readme, please naviagate to /backend/readme.md
+For frontend Readme, please naviagate to https://github.com/ArunGiri392/placesharing/blob/main/frontend/README.md
+
+For backend Readme, please naviagate to https://github.com/ArunGiri392/placesharing/blob/main/backend/Readme.md
 
 
 ## Contributing
