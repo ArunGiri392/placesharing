@@ -39,7 +39,7 @@ const UpdatePlace = () => {
     const fetchPlace = async () => {
       try {
         const responseData = await sendRequest(
-          `http://54.234.229.159:8000/api/places/${placeId}`
+          `http://3.83.241.237:8000/api/places/${placeId}`
         );
         console.log(responseData);
         setLoadedPlace(responseData);

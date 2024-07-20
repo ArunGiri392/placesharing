@@ -13,7 +13,7 @@ const UserPlaces = () => {
     const fetchPlaces = async () => {
       try {
         const responseData = await sendRequest(
-          `http://54.234.229.159:8000/api/places/user/${userId}`
+          `http://3.83.241.237:8000/api/places/user/${userId}`
         );
         console.log(responseData);
         setLoadedPlaces(responseData);
