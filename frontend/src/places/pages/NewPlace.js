@@ -39,7 +39,7 @@ const NewPlace = () => {
     console.log(auth.userId);
     try {
       const responseData = await sendRequest(
-        "http://localhost:8000/api/places/",
+        "http://54.234.229.159:8000/api/places/",
         "POST",
         JSON.stringify({
           title: formState.inputs.title.value,

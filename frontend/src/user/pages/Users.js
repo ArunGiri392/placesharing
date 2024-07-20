@@ -10,7 +10,7 @@ const User = () => {
     const fetchUsers = async () => {
       try {
         const responseData = await sendRequest(
-          'http://54.234.229.159:8000/api/users/'
+          'http://localhost:8000/api/users/'
         );
         console.log(responseData);
         setLoadedUsers(responseData);
