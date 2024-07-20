@@ -10,7 +10,9 @@ from .models import CustomUser
 def get_users(request):
     print("API CALLED.")
     users = CustomUser.objects.all()
+    print("The users are" , users)
     serializer = UserSerializer(users, many=True)
+    print("The serializers are" , serializer)
     return Response(serializer.data)
 
 @api_view(['POST'])
